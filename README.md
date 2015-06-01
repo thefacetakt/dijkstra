@@ -19,7 +19,7 @@ Here some examples:
 
 * If use [BusEdge.hpp](https://github.com/thefacetakt/dijkstra/blob/master/BusEdge.cpp), the result can be seen [here](http://informatics.mccme.ru/mod/statements/view3.php?id=10845&chapterid=170#1) (submission id 85-3214)
 
-* If use [StringEdge.hpp](https://github.com/thefacetakt/dijkstra/blob/master/StringEdge.cpp), just trust [my random tests](https://github.com/thefacetakt/dijkstra/blob/master/dijkstra.cpp)
+* If use [StringEdge.hpp](https://github.com/thefacetakt/dijkstra/blob/master/StringEdge.hpp), just trust [my random tests](https://github.com/thefacetakt/dijkstra/blob/master/dijkstra.cpp)
 
 
 
