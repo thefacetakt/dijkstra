@@ -59,7 +59,7 @@ void test()
             vertice.resize(std::min(MAX_VERTEX_PROCESSED, vertice.size()));
             for (auto &vertex: vertice)
             {
-                if (graph.dijkstra(vertex) != fordBellman(vertex, graph))
+                if (graph.dijkstra(vertex).first != fordBellman(vertex, graph).first)
                 {
                     printf("ERROR TEST %zu %zu %zu\n", graph.getNumberOfVertice(), percentage, vertex);
                     return;

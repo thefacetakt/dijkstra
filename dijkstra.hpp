@@ -73,12 +73,18 @@ public:
     }
     
     
-    std::vector<typename Edge::PathType> dijkstra(size_t startVertex)
+    std::pair<std::vector<typename Edge::PathType>, std::vector<size_t> > dijkstra(size_t startVertex)
     {
         std::vector<typename Edge::PathType> distance(numberOfVertice, static_cast<typename Edge::PathType>(Edge::PATH_INFINITY));
+        std::vector<size_t> parent(numberOfVertice, static_cast<size_t>(-1));
+        
+        parent[startVertex] = startVertex;
         distance[startVertex] = static_cast<typename Edge::PathType>(Edge::PATH_ZERO);
+        
         std::set<std::pair<typename Edge::PathType, size_t> > queue;
+        
         queue.insert(std::make_pair(distance[startVertex], startVertex));
+        
         while (queue.size())
         {
             size_t vertex = queue.begin()->second;
@@ -89,11 +95,25 @@ public:
                 {
                     queue.erase(std::make_pair(distance[edge.getDestination()], edge.getDestination()));
                     distance[edge.getDestination()] = Edge::recalculate(distance[vertex], edge);
+                    parent[edge.getDestination()] = vertex;
                     queue.insert(std::make_pair(distance[edge.getDestination()], edge.getDestination()));
                 }
             }
         }
-        return distance;
+        return std::make_pair(distance, parent);
+    }
+    
+    std::vector<size_t> restorePath(const std::vector<size_t> &parent, size_t endVertex)
+    {
+        std::vector<size_t> answer;
+        do
+        {
+            answer.push_back(endVertex);
+            endVertex = parent[endVertex];
+        }
+        while (parent[endVertex] != endVertex);
+        std::reverse(answer.begin(), answer.end());
+        return answer;
     }
     
     size_t getNumberOfVertice() const
