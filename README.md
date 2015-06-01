@@ -1,7 +1,9 @@
 Dijkstra implementation
 ===========================
-This is a simple O(ElogV) implementation of Dijkstra algorithm, working for every path function possible
+This is a simple O(ElogV) implementation of Dijkstra algorithm, working for every path function possible.
+
 To use algo (dijkstra.hpp) you should implement class Edge with:
+
 * defined WeightType and PathType classes
 * defined constants PATH_INFINITY and PATH_ZERO
 * constructor from destination (size_t) and weight (WeightType)
@@ -10,6 +12,7 @@ To use algo (dijkstra.hpp) you should implement class Edge with:
 
 
 It works!
+
 Here some examples:
 
 * If use RegularEdge.hpp, the result can be seen [here](http://informatics.mccme.ru/moodle/mod/statements/view3.php?chapterid=3494&run_id=1760r7895#1) (submission id 1760-7895)
