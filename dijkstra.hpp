@@ -106,10 +106,11 @@ public:
     std::vector<size_t> restorePath(const std::vector<size_t> &parent, size_t endVertex)
     {
         std::vector<size_t> answer;
+        answer.push_back(endVertex);
         do
         {
-            answer.push_back(endVertex);
             endVertex = parent[endVertex];
+            answer.push_back(endVertex);
         }
         while (parent[endVertex] != endVertex);
         std::reverse(answer.begin(), answer.end());
