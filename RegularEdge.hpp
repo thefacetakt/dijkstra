@@ -1,7 +1,7 @@
 #ifndef _REGULAR_EDGE
 #define _REGULAR_EDGE
 
-#include <climits.h>
+#include <climits>
 
 class RegularEdge
 {
